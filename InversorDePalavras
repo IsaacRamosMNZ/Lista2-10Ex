@@ -1,0 +1,38 @@
+//Main
+
+import java.util.Scanner;
+
+public class InversorDePalavras {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicitar a palavra ao usuário
+        System.out.print("Digite uma palavra: ");
+        String palavra = scanner.nextLine();
+
+        // Chamar o método da classe externa para inverter a palavra
+        String palavraInvertida = Inverter.inverterPalavra(palavra);
+
+        // Exibir a palavra invertida
+        System.out.println("A palavra invertida é: " + palavraInvertida);
+
+        scanner.close();
+    }
+}
+
+//Classe
+
+public class Inverter {
+    
+    // Método estático para inverter a palavra
+    public static String inverterPalavra(String palavra) {
+        String palavraInvertida = "";
+        
+        // Percorrer a palavra de trás para frente
+        for (int i = palavra.length() - 1; i >= 0; i--) {
+            palavraInvertida += palavra.charAt(i);
+        }
+        
+        return palavraInvertida;
+    }
+}
