@@ -1,0 +1,33 @@
+//Main
+
+import java.util.Scanner;
+
+public class ExtratorDeDominio {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite seu endereço de email: ");
+        String email = scanner.nextLine();
+
+        String dominio = Extrator.extrairDominio(email);
+
+        System.out.println("O domínio do email é: " + dominio);
+
+        scanner.close();
+    }
+}
+
+//Clase
+
+public class Extrator {
+    public static String extrairDominio(String email) {
+        int indiceArroba = email.indexOf('@');
+        
+        if (indiceArroba != -1) {
+            return email.substring(indiceArroba + 1);
+        } else {
+            return "Email inválido";
+        }
+    }
+}
+
