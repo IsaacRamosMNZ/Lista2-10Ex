@@ -1,0 +1,38 @@
+//Main
+
+import java.util.Scanner;
+
+public class NomeFormatado {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o nome completo: ");
+        String nomeCompleto = scanner.nextLine();
+
+        String nomeFormatado = Formatar.formatarNome(nomeCompleto);
+
+        System.out.println("Nome formatado: " + nomeFormatado);
+
+        scanner.close();
+    }
+}
+
+
+//Classe
+
+public class Formatar {
+    public static String formatarNome(String nome) {
+        String[] palavras = nome.split(" ");
+        StringBuilder nomeFormatado = new StringBuilder();
+
+        for (String palavra : palavras) {
+            if (!palavra.isEmpty()) {
+                nomeFormatado.append(Character.toUpperCase(palavra.charAt(0)))
+                              .append(palavra.substring(1).toLowerCase())
+                              .append(" ");
+            }
+        }
+
+        return nomeFormatado.toString().trim();
+    }
+}
