@@ -1,0 +1,36 @@
+//Main
+
+import java.util.Scanner;
+
+public class ContadorDePalavras {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+        System.out.print("Digite uma frase: ");
+        String frase = scanner.nextLine();
+
+        
+        int numeroDePalavras = Contar.contarPalavras(frase);
+
+        
+        System.out.println("A frase digitada tem " + numeroDePalavras + " palavras.");
+
+        scanner.close();
+    }
+}
+
+//Classe
+
+public class Contar {
+    
+   
+    public static int contarPalavras(String frase) {
+       
+        String[] palavras = frase.split("\\s+");  // \\s+ representa um ou mais espaços em branco
+        
+       
+        return palavras.length;
+    }
+}
+
