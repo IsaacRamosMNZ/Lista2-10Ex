@@ -1,0 +1,37 @@
+//MAIN
+
+import java.util.Scanner;
+
+public class ContadorDeLetras {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicitar a palavra ao usuário
+        System.out.print("Digite uma palavra: ");
+        String palavra = scanner.nextLine();
+
+        // Chamar o método da classe externa para contar as letras
+        int quantidade = ContarLetras.contarLetras(palavra);
+
+        // Exibir o resultado
+        System.out.println("A palavra digitada tem " + quantidade + " letras.");
+
+        scanner.close();
+    }
+}
+
+//Classe 
+
+public class ContarLetras {
+    
+    // Método estático para contar apenas letras (ignorando números, espaços, etc.)
+    public static int contarLetras(String palavra) {
+        int contador = 0;
+        for (int i = 0; i < palavra.length(); i++) {
+            if (Character.isLetter(palavra.charAt(i))) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+}
