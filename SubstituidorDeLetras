@@ -1,0 +1,32 @@
+//Main
+
+import java.util.Scanner;
+
+public class SubstituidorDeLetras {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicitar a frase ao usuário
+        System.out.print("Digite uma frase: ");
+        String frase = scanner.nextLine();
+
+        // Chamar o método da classe externa para substituir a letra 'a' por '*'
+        String fraseModificada = Substituir.substituirAporAsterisco(frase);
+
+        // Exibir a frase modificada
+        System.out.println("Frase modificada: " + fraseModificada);
+
+        scanner.close();
+    }
+}
+
+//Classe
+
+public class Substituir {
+    
+    // Método estático para substituir todas as ocorrências da letra 'a' por '*'
+    public static String substituirAporAsterisco(String frase) {
+        // Substituindo a letra 'a' por '*'
+        return frase.replace('a', '*').replace('A', '*'); // Também substitui 'A' maiúsculo por '*'
+    }
+}
