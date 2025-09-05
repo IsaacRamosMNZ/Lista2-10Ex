@@ -1,0 +1,43 @@
+//Main
+
+import java.util.Scanner;
+
+public class MascaradorDeCartao {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o número do cartão de crédito: ");
+        String numeroCartao = scanner.nextLine();
+
+        String numeroMascarado = Mascarador.mascararCartao(numeroCartao);
+
+        System.out.println("Número do cartão (mascarado): " + numeroMascarado);
+
+        scanner.close();
+    }
+}
+
+//Classe
+
+public class Mascarador {
+    public static String mascararCartao(String numeroCartao) {
+        int tamanho = numeroCartao.length();
+        
+        if (tamanho < 4) {
+            return "Número de cartão inválido";
+        }
+
+        StringBuilder asteriscos = new StringBuilder();
+        
+        // Adiciona asteriscos para todos os dígitos, exceto os últimos 4
+        for (int i = 0; i < tamanho - 4; i++) {
+            asteriscos.append("*");
+        }
+        
+        // Pega os últimos 4 dígitos
+        String ultimos4 = numeroCartao.substring(tamanho - 4);
+        
+        // Retorna os asteriscos seguidos dos últimos 4 dígitos
+        return asteriscos.toString() + ultimos4;
+    }
+}
