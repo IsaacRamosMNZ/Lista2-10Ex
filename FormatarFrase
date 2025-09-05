@@ -1,0 +1,27 @@
+//Main
+
+import java.util.Scanner;
+
+public class FormatarFrase {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite uma frase com espaços extras: ");
+        String frase = scanner.nextLine();
+
+        String fraseFormatada = Formatar.removerEspacosExtras(frase);
+
+        System.out.println("Frase formatada: " + fraseFormatada);
+
+        scanner.close();
+    }
+}
+
+//Classe
+
+public class Formatar {
+    public static String removerEspacosExtras(String frase) {
+        // Remove espaços extras entre as palavras e também os espaços no começo e no fim
+        return frase.trim().replaceAll("\\s+", " ");
+    }
+}
