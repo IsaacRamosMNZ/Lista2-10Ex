@@ -1,0 +1,51 @@
+//Main 
+
+import java.util.Scanner;
+
+public class ContadorDeVogaisEConsoantes {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite uma palavra: ");
+        String palavra = scanner.nextLine();
+
+        // Chama o método para contar vogais e consoantes
+        int[] resultado = Contador.contarVogaisEConsoantes(palavra);
+
+        System.out.println("Vogais: " + resultado[0]);
+        System.out.println("Consoantes: " + resultado[1]);
+
+        scanner.close();
+    }
+}
+
+
+//Classe
+
+public class Contador {
+    public static int[] contarVogaisEConsoantes(String palavra) {
+        int vogais = 0;
+        int consoantes = 0;
+        
+        // Converter a palavra para minúsculas para facilitar a comparação
+        palavra = palavra.toLowerCase();
+
+        for (int i = 0; i < palavra.length(); i++) {
+            char letra = palavra.charAt(i);
+
+            if (Character.isLetter(letra)) { // Verifica se é uma letra
+                if (isVogal(letra)) {
+                    vogais++;
+                } else {
+                    consoantes++;
+                }
+            }
+        }
+
+        return new int[] {vogais, consoantes};
+    }
+
+    private static boolean isVogal(char letra) {
+        return "aeiou".indexOf(letra) != -1;
+    }
+}
